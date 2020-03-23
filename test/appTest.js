@@ -30,12 +30,13 @@ describe('App', function(){
     });
 
     describe('fetchData()', function(){
-        it('check user id = 1', function(){
+        this.timeout(5000); 
+        it('fetchData should fetch user with userId equal to 1', function(){
             return fetchData.then(function(data){
                 expect(data.userId).to.equal(1);
             //     assert.equal(data.title, 'delectus aut autem');
             //     assert.ok(true);
-            });
+            }).catch(err => console.log("Error : ", err));
         });
     });
 
