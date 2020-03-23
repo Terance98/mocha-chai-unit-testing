@@ -4,7 +4,8 @@ const app = require('../app');
 
 const sayHelloResult = app.sayHello();
 const addNumbersResult = app.addNumbers(5,5);
-
+const fetchData = app.fetchData();
+// fetchData.then(data => console.log(data));
 
 describe('App', function(){
     describe('sayHello()', function(){
@@ -26,4 +27,16 @@ describe('App', function(){
             assert.typeOf(addNumbersResult, 'number');
         });
     });
+
+    describe('fetchData()', function(){
+        it('check user id = 1', function(){
+            return fetchData.then(function(data){
+                console.log(data);
+                assert.equal(data.userId, 1);
+                assert.equal(data.title, 'delectus aut autem');
+                assert.ok(true);
+            });// no catch, it'll figure it out since the promise is rejected
+        });
+    });
+
 });
