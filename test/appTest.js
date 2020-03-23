@@ -1,4 +1,5 @@
 const assert = require('chai').assert;
+const expect = require('chai').expect;
 
 const app = require('../app');
 
@@ -31,11 +32,10 @@ describe('App', function(){
     describe('fetchData()', function(){
         it('check user id = 1', function(){
             return fetchData.then(function(data){
-                console.log(data);
-                assert.equal(data.userId, 1);
-                assert.equal(data.title, 'delectus aut autem');
-                assert.ok(true);
-            });// no catch, it'll figure it out since the promise is rejected
+                expect(data.userId).to.equal(1);
+            //     assert.equal(data.title, 'delectus aut autem');
+            //     assert.ok(true);
+            });
         });
     });
 
